@@ -26,7 +26,7 @@ public class SwaggerConfig {
 		Contact contact = new Contact();
 		contact.setEmail("provapratica@neki.com.br");
 		contact.setName(" Pedro Wong");
-		contact.setUrl("http://www.neki.com.br");
+		contact.setUrl("http://www.prova_pratica.com.br");
 
 		Info info = new Info().title("Documentação API prova prática").version("1.0.0").contact(contact)
 				.description("API prova prática neki")
