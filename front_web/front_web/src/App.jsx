@@ -1,16 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import { IndexNavigation } from "./routes/indexRoutes";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const state = true;
 
   return (
     <>
-      <p style={{color: "red"}}>Olá mundo</p>
+      {/* <HeaderCabecalho /> */}
+      <IndexNavigation />
+      {/* <FooterRodape /> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

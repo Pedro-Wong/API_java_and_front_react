@@ -1,0 +1,27 @@
+/* INICIO estilização header */
+
+/* FIM estilização header */
+
+/* INICIO estilização main */
+.principal-main {
+  background-color: #f1f1f1;
+  /* border: 2px solid black; */
+ 
+}
+.secao-main{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 15px;
+}
+
+/* FIM estilização main */
+
+/* INICIO estilização footer */
+.rodape {
+  background-color: blue;
+  height: 10vh;
+}
+/* FIM estilização footer */
