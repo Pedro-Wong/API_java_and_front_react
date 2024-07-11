@@ -1,5 +1,7 @@
 package com.neki.desafioFinal.model;
 
+import com.neki.desafioFinal.dto.UsuarioDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,6 +37,11 @@ public class Usuario {
 		this.senha = senha;
 	}
 	
+	public Usuario(UsuarioDTO usuarioDto) {
+		this.idUsuario = usuarioDto.getIdUsuario();
+		this.login = usuarioDto.getLogin();
+		this.senha = usuarioDto.getSenha();
+	}
 	
 	public Long getIdUsuario() {
 		return idUsuario;

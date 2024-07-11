@@ -1,6 +1,5 @@
 package com.neki.desafioFinal.dto;
 
-import com.neki.desafioFinal.model.Usuario;
 
 public class UsuarioDTO {
 	
@@ -9,12 +8,16 @@ public class UsuarioDTO {
 	private String senha;
 	
 	
-	public UsuarioDTO(Usuario usuario) {
-		this.idUsuario = usuario.getIdUsuario();
-		this.login = usuario.getLogin();
-		this.senha = usuario.getSenha();
+	public UsuarioDTO() {
+		
 	}
 	
+	public UsuarioDTO(Long idUsuario, String login, String senha) {
+		
+		this.idUsuario = idUsuario;
+		this.login = login;
+		this.senha = senha;
+	}
 	public Long getIdUsuario() {
 		return idUsuario;
 	}
