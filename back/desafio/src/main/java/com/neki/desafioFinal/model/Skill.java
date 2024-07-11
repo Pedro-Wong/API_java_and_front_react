@@ -2,6 +2,8 @@ package com.neki.desafioFinal.model;
 
 import java.util.List;
 
+import com.neki.desafioFinal.dto.SkillDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,16 +35,22 @@ public class Skill {
 		
 	}
 
-
-	public Skill(Long idSkill, String nome, String url, String descricao) {
+	public Skill(Long idSkill, String nome, String url, String descricao, String level) {
 		super();
 		this.idSkill = idSkill;
 		this.nome = nome;
 		this.url = url;
 		this.descricao = descricao;
+		this.level = level;
 	}
 
-
+	public Skill(SkillDTO skillDto) {
+		this.idSkill = skillDto.getIdSkill();
+		this.nome = skillDto.getNome();
+		this.url = skillDto.getUrl();
+		this.descricao = skillDto.getDescricao();
+		this.level = skillDto.getLevel();
+	}
 	public Long getIdSkill() {
 		return idSkill;
 	}
@@ -80,6 +88,14 @@ public class Skill {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
 	}
 	
 	
