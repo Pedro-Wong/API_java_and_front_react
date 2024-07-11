@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { storeUsuario } from "../services/usuarioService";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button, Typography } from "@mui/material";
@@ -8,6 +9,7 @@ import Alert from "@mui/material/Alert";
 export function SignUp() {
   const [usuario, setUsuario] = useState("");
   const [senha, setSenha] = useState("");
+
   const [confSenha, setConfSenha] = useState("");
 
   const [alertMessage, setAlertMessage] = useState("");
@@ -43,18 +45,21 @@ export function SignUp() {
       setAlertSeverity("error");
       setShowAlert(true);
     } else {
-      alert("Cadastro efetuado com sucesso!");
-      
+      const objetoCadastro = { idUsuario: "", login: usuario, password: senha };
 
-      setConfSenha("");
-      setSenha("");
-      setUsuario("");
-      navigate("/");
+      const funcCad = async () => {
+        console.log("Objeto cadastro", objetoCadastro);
+        const response = await storeUsuario(objetoCadastro);
+       
+
+        setConfSenha("");
+        setSenha("");
+        setUsuario("");
+        // navigate("/");
+        // alert("Cadastro efetuado com sucesso!");
+      };
+      funcCad();
     }
-  };
-
-  const handleCloseAlert = () => {
-    setShowAlert(false);
   };
 
   return (

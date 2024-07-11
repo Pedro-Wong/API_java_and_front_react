@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "prop.cors.dev-url",
+    "type": "java.lang.String",
+    "description": "A description for 'prop.cors.dev-url'"
+  },
+  {
+    "name": "prop.swagger.dev-url",
+    "type": "java.lang.String",
+    "description": "A description for 'prop.swagger.dev-url'"
+  }
+]}
