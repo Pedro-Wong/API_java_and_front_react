@@ -2,15 +2,45 @@ import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button, Typography } from "@mui/material";
-
+import { useState } from "react";
+import Alert from "@mui/material/Alert";
 import Checkbox from "@mui/material/Checkbox";
 
 export function Login() {
+  const [usuario, setUsuario] = useState("");
+  const [senha, setSenha] = useState("");
+
+  const [loginMessage, setLoginMessage] = useState("");
+  const [alertSeverity, setAlertSeverity] = useState("info");
+  const [showAlert, setShowAlert] = useState(false);
+
   const navigate = useNavigate();
+
+  const validacaoLogin = () => {
+    if (usuario === "" && senha === "") {
+      // alert("Preencha todos os campos!");
+      setLoginMessage("Preencha todos os campos!");
+      setAlertSeverity("error");
+      setShowAlert(true);
+    } else if (usuario === "") {
+      setLoginMessage("Preencha o nome do usuário");
+      setAlertSeverity("error");
+      setShowAlert(true);
+    } else if (senha === "") {
+      setLoginMessage("Preencha a senha");
+      setAlertSeverity("error");
+      setShowAlert(true);
+    } else {
+      alert("Login efetuado com sucesso!");
+
+      setUsuario("");
+      setSenha("");
+    }
+  };
 
   return (
     <Box
-      component="body"
+      component="main"
       sx={{
         width: "100vw",
         height: "100vh",
@@ -24,7 +54,7 @@ export function Login() {
         sx={{
           background: "#f1f1f1",
           width: "50vw",
-          height: "40vh",
+          height: "45vh",
           borderRadius: 5,
         }}
       >
@@ -49,6 +79,8 @@ export function Login() {
             id="username"
             label="Nome de usuário"
             variant="outlined"
+            value={usuario}
+            onChange={(e) => setUsuario(e.target.value)}
             sx={{ width: "25vw", background: "white" }}
           />
           <TextField
@@ -56,15 +88,23 @@ export function Login() {
             label="Senha"
             type="password"
             variant="outlined"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
             sx={{ width: "25vw", background: "white" }}
           />
+          {showAlert && (
+            <Alert severity={alertSeverity} onClose={() => setShowAlert(false)}>
+              {loginMessage}
+            </Alert>
+          )}
           <Button
             sx={{
               color: "white",
               background: "#0066cb",
-              width: "23vw",
+              width: "20vw",
               height: "5vh",
             }}
+            onClick={() => validacaoLogin()}
           >
             Entrar
           </Button>
@@ -72,7 +112,7 @@ export function Login() {
             sx={{
               color: "white",
               background: "#0066cb",
-              width: "23vw",
+              width: "20vw",
               height: "5vh",
             }}
             onClick={() => navigate("/signUp")}
