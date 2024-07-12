@@ -36,3 +36,17 @@ export const getSkills = async () => {
     console.log("Erro em pegar skills", erro);
   }
 };
+
+const deleteSkill = async (idSkill) => {
+    try{
+        const response = await api.delete(`habilidades/deletarHabilidades/${idSkill}`);
+
+
+        console.log("Sucesso em deletar skill", response);
+
+
+    }catch(erro){
+        console.log("Erro ao deletar skill", erro);
+    }
+
+}

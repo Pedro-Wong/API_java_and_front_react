@@ -11,22 +11,9 @@
 
 
 /* INICIO estilização main */
-.principal-main {
-  background-color: #f1f1f1;
-  /* border: 2px solid black; */
- 
-}
 
-/* INICIOEstilização do card */
-.secao-main{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    gap: 0.6rem;
-    margin-bottom: 15px;
-}
-/* FIM Estilização do card */
+
+
 
 .input-skill {
   width: 20vw;

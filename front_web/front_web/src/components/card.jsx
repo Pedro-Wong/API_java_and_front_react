@@ -8,66 +8,80 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ModalEditSkill from "./edit";
 import { getSkills } from "../services/skillService";
+import api from "../services/api";
+import { Box } from "@mui/material";
 
 export default function SkillCard() {
   const [skills, setSkills] = useState([]);
 
-  // useEffect(() => {
-  //   const response = async () => {
+  useEffect(() => {
+    const response = async () => {
+      const apiSkills = await getSkills();
+      setSkills(apiSkills);
+      console.log("Vindo da API", apiSkills);
+    };
 
-  //     const apiSkills = await getSkills();
-  //     console.log("Vindo da API", apiSkills);
-  //     const selectSkill = apiSkills?.map((value) => ({
-  //       idSkill: value.idSkill,
-  //       nome: value.nome,
-  //       url: value.url,
-  //       descricao: value.descricao,
-  //       level: value.level,
-  //       imagem: value.imagem,
-  //     }));
+    response();
+  }, []);
 
-  //     console.log("Console select skill MAP", selectSkill);
-  //     setSkills(selectSkill);
-  //     console.log("UseState Skill", skills);
 
-  //   };
+  // const idDelete =  async() => {
+  //   const delete = await 
+  // }
 
-  //   response();
 
-  // }, []);
 
-  //  useEffect(() => {
-  //     console.log("Console skills", skills);
-  //  }, [])
+
+
+
+  const rendeSkils = () => {
+    return skills.map((itemSkill) => {
+      return (
+        <Box
+          key={itemSkill.idSkill}
+          component="div"
+          sx={{ background: "#f1f1f1", width: "20vw" }}
+        >
+          <CardMedia
+            sx={{ height: 140 }}
+            image="../assets/img/linux.jpg"
+            title="green iguana"
+          />
+          <CardContent sx={{ justifyContent: "center" }}>
+            <Typography gutterBottom variant="h5" component="div">
+              {itemSkill.nome}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {itemSkill.descricao}
+            </Typography>
+          </CardContent>
+          <CardActions sx={{ justifyContent: "center" }}>
+            <ModalEditSkill />
+            <Button
+              sx={{
+                color: "black",
+                background: "white",
+                width: "4vw",
+                height: "4vh",
+              }}
+            >
+              Excluir
+            </Button>
+          </CardActions>
+        </Box>
+      );
+    });
+  };
 
   return (
-    <Card sx={{ width: "20vw" }} component="div">
-      <CardMedia
-        sx={{ height: 140 }}
-        image="../assets/img/linux.jpg"
-        title="green iguana"
-      />
-      <CardContent sx={{ justifyContent: "center" }}>
-        <Typography gutterBottom variant="h5" component="div">
-          nome
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Descrição sobre a skill
-        </Typography>
-      </CardContent>
-      <CardActions sx={{ justifyContent: "center" }}>
-        <ModalEditSkill />
-        <Button
-          sx={{
-            color: "black",
-            background: "#f1f1f1",
-            width: "4vw",
-            height: "4vh",
-          }}
-        >
-          Excluir
-        </Button>
-      </CardActions>
+   
+    <Card
+      sx={{ width: "100vw", display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0.5rem" }}
+      component="section"
+    >
+      {rendeSkils()}
     </Card>
   );
 }
+
+

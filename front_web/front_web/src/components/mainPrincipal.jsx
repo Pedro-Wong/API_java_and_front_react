@@ -28,7 +28,7 @@ export function MainPrincipal() {
         >
           Painel de Skills
         </Typography>
-        <Box className="secao-main" component="section">
+        <Box component="section">
           <SkillCard />
         </Box>
       </Box>

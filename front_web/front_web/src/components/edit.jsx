@@ -73,7 +73,7 @@ export default function ModalEditSkill() {
         onClick={handleOpen}
         sx={{
           color: "black",
-          background: "#f1f1f1",
+          background: "white",
           width: "4vw",
           height: "4vh",
         }}
