@@ -8,16 +8,6 @@ import { getSkills } from "../services/skillService";
 
 export function MainPrincipal() {
 
-  // const rep = () => {
-  //   const cards = [];
-  //   for (let i = 0; i < 15; i++) {
-  //     cards[i] = <SkillCard />;
-  //   }
-  //   return cards;
-  // };
-  
-
-
   return (
     <>
       <Box className="principal-main" component="main" sx={{ marginBottom: 2 }}>

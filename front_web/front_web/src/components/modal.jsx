@@ -94,9 +94,6 @@ export default function ModalAddSkill() {
             Cadastro de Skill
           </Typography>
 
-          {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography> */}
 
           <Box component="form">
             <Box component="div">
@@ -167,7 +164,6 @@ export default function ModalAddSkill() {
               Sair
             </Button>
             <Button
-              // onClick={() => }
               sx={{
                 color: "black",
                 background: "#f1f1f1",
