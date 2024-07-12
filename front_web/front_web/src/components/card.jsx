@@ -42,7 +42,7 @@ export default function SkillCard() {
           sx={{ background: "#f1f1f1", width: "20vw", display: "flex", flexDirection: "column", alignItems: "center" }}
         >
           <CardMedia
-            sx={{ height: "30vh", width: "7vw", alignSelf: "center" }}
+            sx={{ height: "15vh", width: "7vw", alignSelf: "center" }}
             image={itemSkill.url}
             title="green iguana"
           />
