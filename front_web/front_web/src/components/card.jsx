@@ -19,7 +19,7 @@ export default function SkillCard() {
     const response = async () => {
       const apiSkills = await getSkills();
       setSkills(apiSkills);
-      console.log("Vindo da API", apiSkills);
+      console.log("Vindo da API CARD", apiSkills);
     };
 
     response();
@@ -57,7 +57,8 @@ export default function SkillCard() {
             </Typography>
           </CardContent>
           <CardActions sx={{ justifyContent: "center" }}>
-            <ModalEditSkill />
+            <ModalEditSkill skills={itemSkill} />
+            {/* {console.log("Dentro do Card", itemSkill.idSkill)} */}
             <Button
               sx={{
                 color: "black",

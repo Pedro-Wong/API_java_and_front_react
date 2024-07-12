@@ -3,8 +3,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { storeSkill } from "../services/skillService";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { updateSkill } from "../services/skillService";
 
 const style = {
   position: "absolute",
@@ -22,7 +22,7 @@ const style = {
   alignItems: "center",
 };
 
-export default function ModalEditSkill() {
+export default function ModalEditSkill(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -32,10 +32,14 @@ export default function ModalEditSkill() {
   const [descricao, setDescricao] = useState();
   const [versao, setVersao] = useState();
 
-  // console.log("Console nome", nome);
-  // console.log("Console url", url);
-  // console.log("Console descricao", descricao);
-  // console.log("Console versao", versao);
+  const [editSkills, setEditSkills] = useState([]);
+
+  useEffect(() => {
+    setNome(props.skills.nome);
+    setUrl(props.skills.url);
+    setDescricao(props.skills.descricao);
+    setVersao(props.skills.level);
+  }, []);
 
   const verificarCampos = () => {
     if (
@@ -47,17 +51,17 @@ export default function ModalEditSkill() {
       alert("Nenhum campo pode estar vazio!");
     } else {
       const objetoCadastro = {
-        idSkill: "",
-        nome: nome,
-        url: url,
-        descricao: descricao,
-        level: versao,
+        idSkill: props.skills.idSkill,
+        nome: props.skills.nome,
+        url: props.skills.url,
+        descricao: props.skills.descricao,
+        level: props.skills.level,
       };
 
-      console.log("Objeto cadastro", objetoCadastro);
-      const editarSkill = () => {
-        // const cadastroHabilidade = await storeSkill(objetoCadastro);
-        console.log("sucesso em alterar");
+      console.log("Objeto cadastro INDO PRO PATCH", objetoCadastro);
+      console.log("Props ID skills", props.skills.idSkill);
+      const editarSkill = async () => {
+        const alterarSkill = await updateSkill(props.skills.idSkill, objetoCadastro);
         setNome("");
         setUrl("");
         setDescricao("");
@@ -69,6 +73,9 @@ export default function ModalEditSkill() {
 
   return (
     <div>
+      {/* {console.log("Editando skills", editSkills)} */}
+
+      {/* {console.log("Dentro do Edit dadasd", props.skills)} */}
       <Button
         onClick={handleOpen}
         sx={{

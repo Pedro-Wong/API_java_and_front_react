@@ -20,7 +20,7 @@ export const getSkills = async () => {
       //   console.log(key);
       const newObjSkills = {
         ...response.data[key],
-        id: key,
+        // id: key,
       };
       arraySkills.push(newObjSkills);
     }
@@ -42,5 +42,17 @@ export const deleteSkill = async (idSkill) => {
   } catch (erro) {
     console.log("Erro ao deletar skill API", erro);
     alert("Erro em deletar skill");
+  }
+};
+
+export const updateSkill = async (idSkill, itemSkill) => {
+  try {
+    const response = await api.patch(
+      `habilidades/atualizarHabilidades/${idSkill}`,
+      itemSkill
+    );
+    console.log("Sucesso em atualizar skill API", response);
+  } catch (error) {
+    console.log("Erro ao atualizar skill", error);
   }
 };
