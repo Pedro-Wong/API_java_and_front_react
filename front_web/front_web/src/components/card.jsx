@@ -25,15 +25,13 @@ export default function SkillCard() {
     response();
   }, []);
 
-
   const idDelete = async (idSkill) => {
-    try{
+    try {
       const response = await deleteSkill(idSkill);
-    }catch(erro){
-        console.log("Erro ao deletar skill SERVICE", erro);
+    } catch (erro) {
+      console.log("Erro ao deletar skill SERVICE", erro);
     }
-
-  }
+  };
 
   const rendeSkils = () => {
     return skills.map((itemSkill) => {
@@ -41,11 +39,11 @@ export default function SkillCard() {
         <Box
           key={itemSkill.idSkill}
           component="div"
-          sx={{ background: "#f1f1f1", width: "20vw" }}
+          sx={{ background: "#f1f1f1", width: "20vw", display: "flex", flexDirection: "column", alignItems: "center" }}
         >
           <CardMedia
-            sx={{ height: 140 }}
-            image="../assets/img/linux.jpg"
+            sx={{ height: "30vh", width: "7vw", alignSelf: "center" }}
+            image={itemSkill.url}
             title="green iguana"
           />
           <CardContent sx={{ justifyContent: "center" }}>
@@ -53,11 +51,17 @@ export default function SkillCard() {
               {itemSkill.nome}
             </Typography>
             <Typography variant="body2" color="text.secondary">
+              <span style={{ fontWeight: "bold" }}>Descrição:</span>{" "}
               {itemSkill.descricao}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              <span style={{ fontWeight: "bold" }}>Versão da habilidade:</span>{" "}
+              {itemSkill.level}
             </Typography>
           </CardContent>
           <CardActions sx={{ justifyContent: "center" }}>
             <ModalEditSkill skills={itemSkill} />
+
             {/* {console.log("Dentro do Card", itemSkill.idSkill)} */}
             <Button
               sx={{
@@ -77,14 +81,17 @@ export default function SkillCard() {
   };
 
   return (
-   
     <Card
-      sx={{ width: "100vw", display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0.5rem" }}
+      sx={{
+        width: "100vw",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        gap: "0.5rem",
+      }}
       component="section"
     >
       {rendeSkils()}
     </Card>
   );
 }
-
-

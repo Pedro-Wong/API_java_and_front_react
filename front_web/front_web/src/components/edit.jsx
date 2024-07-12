@@ -52,10 +52,10 @@ export default function ModalEditSkill(props) {
     } else {
       const objetoCadastro = {
         idSkill: props.skills.idSkill,
-        nome: props.skills.nome,
-        url: props.skills.url,
-        descricao: props.skills.descricao,
-        level: props.skills.level,
+        nome: nome,
+        url: url,
+        descricao: descricao,
+        level: versao,
       };
 
       console.log("Objeto cadastro INDO PRO PATCH", objetoCadastro);
@@ -68,6 +68,8 @@ export default function ModalEditSkill(props) {
         setVersao("");
       };
       editarSkill();
+      alert("Skill editado com sucesso!");
+      handleClose();
     }
   };
 
@@ -76,6 +78,11 @@ export default function ModalEditSkill(props) {
       {/* {console.log("Editando skills", editSkills)} */}
 
       {/* {console.log("Dentro do Edit dadasd", props.skills)} */}
+      { console.log("nome", nome)}
+      { console.log("nome", url)}
+      { console.log("nome", descricao)}
+      { console.log("nome", versao)}
+
       <Button
         onClick={handleOpen}
         sx={{
