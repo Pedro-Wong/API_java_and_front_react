@@ -8,7 +8,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ModalEditSkill from "./edit";
 import { getSkills } from "../services/skillService";
-import api from "../services/api";
+import { deleteSkill } from "../services/skillService";
+
 import { Box } from "@mui/material";
 
 export default function SkillCard() {
@@ -25,14 +26,14 @@ export default function SkillCard() {
   }, []);
 
 
-  // const idDelete =  async() => {
-  //   const delete = await 
-  // }
+  const idDelete = async (idSkill) => {
+    try{
+      const response = await deleteSkill(idSkill);
+    }catch(erro){
+        console.log("Erro ao deletar skill SERVICE", erro);
+    }
 
-
-
-
-
+  }
 
   const rendeSkils = () => {
     return skills.map((itemSkill) => {
@@ -64,6 +65,7 @@ export default function SkillCard() {
                 width: "4vw",
                 height: "4vh",
               }}
+              onClick={() => idDelete(itemSkill.idSkill)}
             >
               Excluir
             </Button>
