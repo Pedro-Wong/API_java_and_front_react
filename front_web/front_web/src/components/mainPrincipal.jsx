@@ -1,16 +1,23 @@
 import { Box, Typography } from "@mui/material";
+import { useEffect } from "react";
 import Button from "@mui/material/Button";
+
 import SkillCard from "./card";
 import "./components.css";
+import { getSkills } from "../services/skillService";
 
 export function MainPrincipal() {
-  const rep = () => {
-    const cards = [];
-    for (let i = 0; i < 15; i++) {
-      cards[i] = <SkillCard />;
-    }
-    return cards;
-  };
+
+  // const rep = () => {
+  //   const cards = [];
+  //   for (let i = 0; i < 15; i++) {
+  //     cards[i] = <SkillCard />;
+  //   }
+  //   return cards;
+  // };
+  
+
+
   return (
     <>
       <Box className="principal-main" component="main" sx={{ marginBottom: 2 }}>
@@ -22,7 +29,7 @@ export function MainPrincipal() {
           Painel de Skills
         </Typography>
         <Box className="secao-main" component="section">
-          {rep()}
+          <SkillCard />
         </Box>
       </Box>
     </>

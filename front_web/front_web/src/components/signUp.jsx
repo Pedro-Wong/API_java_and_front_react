@@ -45,12 +45,11 @@ export function SignUp() {
       setAlertSeverity("error");
       setShowAlert(true);
     } else {
-      const objetoCadastro = { idUsuario: "", login: usuario, password: senha };
+      const objetoCadastro = { idUsuario: "", login: usuario, senha: senha };
 
       const funcCad = async () => {
         console.log("Objeto cadastro", objetoCadastro);
-        const response = await storeUsuario(objetoCadastro);
-       
+        const cadastroUsuario = await storeUsuario(objetoCadastro);
 
         setConfSenha("");
         setSenha("");

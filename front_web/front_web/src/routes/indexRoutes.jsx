@@ -7,7 +7,7 @@ import PublicRoutesNavigation from "./publicRoutes";
 
 export function IndexNavigation() {
   const [count, setCount] = useState(0);
-  const state = false;
+  const state = true;
 
   return (
     <>{state ? <PrivateRoutesNavigation /> : <PublicRoutesNavigation />}</>

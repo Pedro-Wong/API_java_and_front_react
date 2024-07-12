@@ -2,12 +2,22 @@
 
 /* FIM estilização header */
 
+
+
+
+
+
+
+
+
 /* INICIO estilização main */
 .principal-main {
   background-color: #f1f1f1;
   /* border: 2px solid black; */
  
 }
+
+/* INICIOEstilização do card */
 .secao-main{
     display: flex;
     flex-wrap: wrap;
@@ -16,6 +26,24 @@
     gap: 0.6rem;
     margin-bottom: 15px;
 }
+/* FIM Estilização do card */
+
+.input-skill {
+  width: 20vw;
+  height: 4.5vh;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
 
 /* FIM estilização main */
 

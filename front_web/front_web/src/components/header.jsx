@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import TextField from "@mui/material/TextField";
 import ModalAddSkill from "./modal";
 import { useNavigate } from "react-router-dom";
 import "@fontsource/roboto/500.css";
@@ -19,23 +20,16 @@ export default function HeaderCabecalho() {
         position="static"
       >
         <Toolbar>
-          {/* <Button
-            sx={{
-              color: "black",
-              background: "#f1f1f1",
-              width: "8%",
-              marginRight: "3%",
-            }}
-            onClick={() => navigate("/modal")}
-          >
-            Adicionar Skill
-          </Button> */}
-          <ModalAddSkill/>
+          <ModalAddSkill />
 
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "3%" }}>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, marginLeft: "3%" }}
+          >
             Nome do Usuario
           </Typography>
-
+       
           {/* Teste página de login */}
           <Button
             sx={{
@@ -44,13 +38,13 @@ export default function HeaderCabecalho() {
               width: "8%",
               marginRight: "3%",
             }}
-            onClick={() => navigate("/login")}
+            // onClick={() => navigate("/login")}
           >
-            ir para login
+            Sair
           </Button>
 
-          {/* Teste página de cadastro */}
-          <Button
+          {/* Teste de rota página de cadastro */}
+          {/* <Button
             sx={{
               color: "black",
               background: "#f1f1f1",
@@ -60,9 +54,9 @@ export default function HeaderCabecalho() {
             onClick={() => navigate("/signUp")}
           >
             Cadastrar
-          </Button>
+          </Button> */}
 
-          <Button
+          {/* <Button
             sx={{
               color: "black",
               background: "#f1f1f1",
@@ -70,7 +64,7 @@ export default function HeaderCabecalho() {
             }}
           >
             Sair
-          </Button>
+          </Button> */}
         </Toolbar>
       </AppBar>
     </Box>
