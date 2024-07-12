@@ -29,8 +29,7 @@ export default function HeaderCabecalho() {
           >
             Nome do Usuario
           </Typography>
-       
-          {/* Teste página de login */}
+
           <Button
             sx={{
               color: "black",
@@ -38,33 +37,9 @@ export default function HeaderCabecalho() {
               width: "8%",
               marginRight: "3%",
             }}
-            // onClick={() => navigate("/login")}
           >
             Sair
           </Button>
-
-          {/* Teste de rota página de cadastro */}
-          {/* <Button
-            sx={{
-              color: "black",
-              background: "#f1f1f1",
-              width: "8%",
-              marginRight: "3%",
-            }}
-            onClick={() => navigate("/signUp")}
-          >
-            Cadastrar
-          </Button> */}
-
-          {/* <Button
-            sx={{
-              color: "black",
-              background: "#f1f1f1",
-              width: "5%",
-            }}
-          >
-            Sair
-          </Button> */}
         </Toolbar>
       </AppBar>
     </Box>

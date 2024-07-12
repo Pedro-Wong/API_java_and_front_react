@@ -6,15 +6,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import ModalEditSkill from "./edit";
 import { getSkills } from "../services/skillService";
 
 export default function SkillCard() {
   const [skills, setSkills] = useState([]);
 
-
-
-
-  
   // useEffect(() => {
   //   const response = async () => {
 
@@ -35,10 +32,7 @@ export default function SkillCard() {
 
   //   };
 
-
   //   response();
-
-
 
   // }, []);
 
@@ -47,7 +41,7 @@ export default function SkillCard() {
   //  }, [])
 
   return (
-    <Card sx={{ maxWidth: 280 }} component="div">
+    <Card sx={{ width: "20vw" }} component="div">
       <CardMedia
         sx={{ height: 140 }}
         image="../assets/img/linux.jpg"
@@ -62,8 +56,17 @@ export default function SkillCard() {
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
-        <Button size="small">Editar</Button>
-        <Button size="small">Excluir</Button>
+        <ModalEditSkill />
+        <Button
+          sx={{
+            color: "black",
+            background: "#f1f1f1",
+            width: "4vw",
+            height: "4vh",
+          }}
+        >
+          Excluir
+        </Button>
       </CardActions>
     </Card>
   );

@@ -22,7 +22,7 @@ const style = {
   alignItems: "center",
 };
 
-export default function ModalAddSkill() {
+export default function ModalEditSkill() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -55,14 +55,15 @@ export default function ModalAddSkill() {
       };
 
       console.log("Objeto cadastro", objetoCadastro);
-      const cadastroSkill = async () => {
-        const cadastroHabilidade = await storeSkill(objetoCadastro);
+      const editarSkill = () => {
+        // const cadastroHabilidade = await storeSkill(objetoCadastro);
+        console.log("sucesso em alterar");
         setNome("");
         setUrl("");
         setDescricao("");
         setVersao("");
       };
-      cadastroSkill();
+      editarSkill();
     }
   };
 
@@ -73,10 +74,11 @@ export default function ModalAddSkill() {
         sx={{
           color: "black",
           background: "#f1f1f1",
-          width: "100%",
+          width: "4vw",
+          height: "4vh",
         }}
       >
-        Adicionar Skill
+        Editar
       </Button>
       <Modal
         open={open}
@@ -91,7 +93,7 @@ export default function ModalAddSkill() {
             component="h2"
             sx={{ marginBottom: "5vh" }}
           >
-            Cadastro de Skill
+            Edição de Skill
           </Typography>
 
           {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
@@ -177,7 +179,7 @@ export default function ModalAddSkill() {
               }}
               onClick={() => verificarCampos()}
             >
-              Cadastrar Skill
+              Editar Skill
             </Button>
           </Box>
         </Box>
