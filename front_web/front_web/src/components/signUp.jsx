@@ -55,7 +55,7 @@ export function SignUp() {
         setSenha("");
         setUsuario("");
         // navigate("/");
-        // alert("Cadastro efetuado com sucesso!");
+        alert("Cadastro efetuado com sucesso!");
       };
       funcCad();
     }

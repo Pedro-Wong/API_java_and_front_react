@@ -1,15 +1,13 @@
-import { useState } from "react";
-
-
-
 import PrivateRoutesNavigation from "./privateRoutes";
 import PublicRoutesNavigation from "./publicRoutes";
-
+import { Context } from "../context/loginContext";
+import { useContext } from "react";
 export function IndexNavigation() {
-  const [count, setCount] = useState(0);
-  const state = true;
+  const {logar} = useContext(Context);
+  
+  const state = false;
 
   return (
-    <>{state ? <PrivateRoutesNavigation /> : <PublicRoutesNavigation />}</>
+    <>{logar ? <PrivateRoutesNavigation /> : <PublicRoutesNavigation />}</>
   );
 }

@@ -1,15 +1,12 @@
-import { useState } from "react";
 import "./App.css";
+import { LoginContext } from "./context/loginContext";
 import { IndexNavigation } from "./routes/indexRoutes";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const state = true;
-
   return (
-    <>
+    <LoginContext>
       <IndexNavigation />
-    </>
+    </LoginContext>
   );
 }
 

@@ -2,11 +2,14 @@ import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button, Typography } from "@mui/material";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Alert from "@mui/material/Alert";
+import { Context } from "../context/loginContext";
+
 import Checkbox from "@mui/material/Checkbox";
 
 export function Login() {
+  const { logar, loginRoutes } = useContext(Context);
   const [usuario, setUsuario] = useState("");
   const [senha, setSenha] = useState("");
 
@@ -31,8 +34,9 @@ export function Login() {
       setAlertSeverity("error");
       setShowAlert(true);
     } else {
+      // terminar login
       alert("Login efetuado com sucesso!");
-
+      loginRoutes();
       setUsuario("");
       setSenha("");
     }

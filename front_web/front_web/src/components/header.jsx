@@ -4,15 +4,17 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import TextField from "@mui/material/TextField";
 import ModalAddSkill from "./modal";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "../context/loginContext";
+
 import "@fontsource/roboto/500.css";
 
 export default function HeaderCabecalho() {
+  const { sairLogin } = useContext(Context);
   const navigate = useNavigate();
+
   return (
     <Box sx={{ flexGrow: 1, marginBottom: 2 }} component="header">
       <AppBar
@@ -37,6 +39,7 @@ export default function HeaderCabecalho() {
               width: "8%",
               marginRight: "3%",
             }}
+            onClick={() => sairLogin()}
           >
             Sair
           </Button>
