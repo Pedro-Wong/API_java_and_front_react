@@ -38,7 +38,7 @@ public class SkillController {
 		if(sDto) {
 			return ResponseEntity.status(HttpStatus.OK).body("Habilidade cadastrada com sucesso");
 		}else {
-			return ResponseEntity.status(HttpStatus.OK).body("Erro ao cadastrar habilidade");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao cadastrar habilidade");
 		}
 		
 	}
@@ -49,7 +49,7 @@ public class SkillController {
 		if(dDto) {
 			return ResponseEntity.status(HttpStatus.OK).body("Habilidade excluida com sucesso");
 		}else {
-			return ResponseEntity.status(HttpStatus.OK).body("Erro ao excluir habilidade");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao excluir habilidade");
 		}
 		
 	}

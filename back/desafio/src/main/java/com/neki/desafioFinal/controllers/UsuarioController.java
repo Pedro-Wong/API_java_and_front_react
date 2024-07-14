@@ -49,7 +49,7 @@ public class UsuarioController {
 		if(deleteUsuario) {
 			return ResponseEntity.status(HttpStatus.OK).body("Usuario com o ID: " + idUsuario + " deletado com sucesso!");
 		}else {
-			return ResponseEntity.status(HttpStatus.OK).body("Não foi possível deletar o usuário ou id inexistente");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não foi possível deletar o usuário ou id inexistente");
 		}
 	}
 	
