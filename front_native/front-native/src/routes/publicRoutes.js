@@ -7,7 +7,7 @@ const { Navigator, Screen } = createStackNavigator();
 export const PublicRoutes = () => {
   return (
     <Navigator>
-      <Screen name="login" component={Login} />
+      <Screen name="login" component={Login} options={{headerShown: false}} />
       <Screen name="signUp" component={SignUp} />
     </Navigator>
   );
