@@ -8,7 +8,7 @@ export const PublicRoutes = () => {
   return (
     <Navigator>
       <Screen name="login" component={Login} options={{headerShown: false}} />
-      <Screen name="signUp" component={SignUp} />
+      <Screen name="signUp" component={SignUp} options={{headerShown:false}}/>
     </Navigator>
   );
 };
