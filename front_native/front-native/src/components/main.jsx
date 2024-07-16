@@ -5,13 +5,17 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  Modal,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { CardSkill } from "./card";
+import { useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
 
-export function MainScreen({navigation}) {
+export function MainScreen({ navigation }) {
+  const [add, setAdd] = useState(false);
+
   // const exemplo = () => {
 
   //   for(let i ; i< 10, i++){
@@ -19,6 +23,17 @@ export function MainScreen({navigation}) {
   //   }
 
   // }
+
+  const modalAdd = () => {
+    return (
+      <Modal animationType="slide" transparent={false} visible={add}>
+        <Text>Modal abriu Adicionar Skill</Text>
+        <TouchableOpacity onPress={() => setAdd(false)}>
+          <Text>Fechar modal de adicionar skill</Text>
+        </TouchableOpacity>
+      </Modal>
+    );
+  };
 
   return (
     <View style={style.container}>
@@ -28,20 +43,14 @@ export function MainScreen({navigation}) {
       </View>
 
       <View style={style.bodyMain}>
-        {/* <Text>Funcionalidades</Text>
-        <TouchableOpacity style={style.style5}>
-          <View>
-            <FontAwesome name="user" size={40} color="black" />
-          </View>
-          <View>
-            <Text>Perfil</Text>
-            <Text>Dados Cadastrais</Text>
-          </View>
-        </TouchableOpacity> */}
-        <TouchableOpacity style={style.buttonAddSkill}>
+        {modalAdd()}
+        <TouchableOpacity
+          style={style.buttonAddSkill}
+          onPress={() => setAdd(true)}
+        >
           <Text>ADICIONAR SKILL</Text>
         </TouchableOpacity>
-        <CardSkill/>
+        <CardSkill />
       </View>
     </View>
   );

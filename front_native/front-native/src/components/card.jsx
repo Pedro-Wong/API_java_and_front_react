@@ -4,19 +4,19 @@ import { EditSkill } from "./editSkill";
 import { useState } from "react";
 export const CardSkill = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
-  console.log(modalVisible);
+
   const modalEdit = () => {
-    
     return (
-        
       <Modal
         visible={modalVisible}
         animationType="slide"
         transparent={false}
-        onRequestClose={() => setModalVisible(false)}
+        
       >
-        {console.log(modalVisible)}
         <Text>Modal abriu</Text>
+        <TouchableOpacity onPress={() => setModalVisible(false)}>
+          <Text>Fechar modal</Text>
+        </TouchableOpacity>
       </Modal>
     );
   };
@@ -42,7 +42,7 @@ export const CardSkill = ({ navigation }) => {
         >
           <Text>Editar</Text>
         </TouchableOpacity>
-       
+
         <TouchableOpacity style={style.buttons}>
           <Text>Excluir</Text>
         </TouchableOpacity>
@@ -87,4 +87,8 @@ const style = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  modal: {
+    width: "70%",
+    height: "50%"
+  }
 });
