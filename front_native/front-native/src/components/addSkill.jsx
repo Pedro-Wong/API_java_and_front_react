@@ -35,6 +35,7 @@ const style = StyleSheet.create({
     justifyContent: "center",
     width: "95%",
     borderRadius: 15,
+    paddingBottom: "5%"
   },
   header: {
     flex: 0.15,
@@ -46,12 +47,14 @@ const style = StyleSheet.create({
   },
   input: {
     borderWidth: 2,
-    height: "15%",
+    height: "20%",
     width: "95%",
     borderRadius: 15,
     padding: 10,
   },
   containerInput: {
+    paddingTop: "2%",
+    paddingBottom: "2%",
     gap: 15,
     flex: 0.85,
     backgroundColor: "#f1f1f1",

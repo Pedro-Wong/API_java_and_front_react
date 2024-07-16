@@ -39,13 +39,13 @@ export function MainScreen({ navigation }) {
             <AddSkill />
             <View style={style.containerButtons}>
               <TouchableOpacity style={style.buttons}>
-                <Text>Adicionar Skill</Text>
+                <Text style={style.text}>Adicionar Skill</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={style.buttons}
                 onPress={() => setAdd(false)}
               >
-                <Text>Fechar</Text>
+                <Text  style={style.text}>Fechar</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -114,9 +114,20 @@ const style = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
     gap: 20,
+    height: "15%",
+    width: "100%"
   },
   buttons: {
     borderWidth: 2,
-    height: "50%"
+    height: "50%",
+    width: "40%",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#0066cb",
   },
+  text: {
+    color: "#f1f1f1",
+    fontWeight: "500",
+    fontSize: 16
+  }
 });
