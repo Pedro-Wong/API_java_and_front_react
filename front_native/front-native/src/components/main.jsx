@@ -102,8 +102,8 @@ const style = StyleSheet.create({
     alignItems: "center",
   },
   modal: {
-    flex: 1,
-    backgroundColor: "white",
+    flex: 1.,
+    backgroundColor: "lightgrey",
     justifyContent: "center",
     alignItems: "center"
   },
