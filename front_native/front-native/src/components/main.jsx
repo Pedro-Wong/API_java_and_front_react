@@ -10,6 +10,7 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import { CardSkill } from "./card";
 import { useState } from "react";
+import { AddSkill } from "./addSkill";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
 
@@ -26,12 +27,30 @@ export function MainScreen({ navigation }) {
 
   const modalAdd = () => {
     return (
-      <Modal animationType="slide" transparent={false} visible={add}>
-        <Text>Modal abriu Adicionar Skill</Text>
-        <TouchableOpacity onPress={() => setAdd(false)}>
-          <Text>Fechar modal de adicionar skill</Text>
-        </TouchableOpacity>
-      </Modal>
+      <View
+        style={{
+          display: "flex ",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Modal animationType="fade" transparent={false} visible={add}>
+          <View style={style.modal}>
+            <AddSkill />
+            <View style={style.containerButtons}>
+              <TouchableOpacity style={style.buttons}>
+                <Text>Adicionar Skill</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={style.buttons}
+                onPress={() => setAdd(false)}
+              >
+                <Text>Fechar</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+      </View>
     );
   };
 
@@ -50,6 +69,7 @@ export function MainScreen({ navigation }) {
         >
           <Text>ADICIONAR SKILL</Text>
         </TouchableOpacity>
+
         <CardSkill />
       </View>
     </View>
@@ -80,5 +100,23 @@ const style = StyleSheet.create({
     marginTop: "4%",
     justifyContent: "center",
     alignItems: "center",
+  },
+  modal: {
+    flex: 1,
+    backgroundColor: "white",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+ 
+  containerButtons: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignContent: "center",
+    gap: 20,
+  },
+  buttons: {
+    borderWidth: 2,
+    height: "50%"
   },
 });
