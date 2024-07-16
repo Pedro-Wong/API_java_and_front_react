@@ -1,9 +1,30 @@
-import { View, Text } from "react-native";
+import { View, Text, Modal } from "react-native";
+import { useState } from "react";
+import { TouchableOpacity } from "react-native-gesture-handler";
+
 
 export const EditSkill = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  // const modalEdit = () => {
+
+  //   return (
+
+  //   );
+  // };
+
   return (
-    <View>
-      <Text>Editar Skills</Text>
-    </View>
+    <TouchableOpacity >
+      
+      <Modal
+        visible={modalVisible}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        {console.log(modalVisible)}
+        <Text>Modal abriu</Text>
+      </Modal>
+    </TouchableOpacity>
   );
 };

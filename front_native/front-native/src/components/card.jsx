@@ -1,7 +1,26 @@
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity, Modal } from "react-native";
 import { StyleSheet } from "react-native";
+import { EditSkill } from "./editSkill";
+import { useState } from "react";
+export const CardSkill = ({ navigation }) => {
+  const [modalVisible, setModalVisible] = useState(false);
+  console.log(modalVisible);
+  const modalEdit = () => {
+    
+    return (
+        
+      <Modal
+        visible={modalVisible}
+        animationType="slide"
+        transparent={false}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        {console.log(modalVisible)}
+        <Text>Modal abriu</Text>
+      </Modal>
+    );
+  };
 
-export const CardSkill = () => {
   return (
     <View style={style.container}>
       <View style={style.header}>
@@ -13,10 +32,17 @@ export const CardSkill = () => {
       <View style={style.description}>
         <Text>Descrição</Text>
       </View>
+
       <View style={style.buttonsContainer}>
-        <TouchableOpacity style={style.buttons}>
+        {modalEdit()}
+
+        <TouchableOpacity
+          style={style.buttons}
+          onPress={() => setModalVisible(true)}
+        >
           <Text>Editar</Text>
         </TouchableOpacity>
+       
         <TouchableOpacity style={style.buttons}>
           <Text>Excluir</Text>
         </TouchableOpacity>
@@ -30,7 +56,7 @@ const style = StyleSheet.create({
     borderWidth: 2,
     flex: 0.8,
     width: "80%",
-    marginBottom: "2%",
+    marginBottom: "10%",
   },
   header: {
     borderWidth: 1,
@@ -59,6 +85,6 @@ const style = StyleSheet.create({
     width: "40%",
     height: "60%",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
 });
