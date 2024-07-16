@@ -45,7 +45,7 @@ export function MainScreen({ navigation }) {
                 style={style.buttons}
                 onPress={() => setAdd(false)}
               >
-                <Text  style={style.text}>Fechar</Text>
+                <Text style={style.text}>Fechar</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -69,8 +69,9 @@ export function MainScreen({ navigation }) {
         >
           <Text>ADICIONAR SKILL</Text>
         </TouchableOpacity>
-
+        
         <CardSkill />
+
       </View>
     </View>
   );
@@ -102,12 +103,12 @@ const style = StyleSheet.create({
     alignItems: "center",
   },
   modal: {
-    flex: 1.,
+    flex: 1,
     backgroundColor: "lightgrey",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
- 
+
   containerButtons: {
     display: "flex",
     flexDirection: "row",
@@ -115,7 +116,7 @@ const style = StyleSheet.create({
     alignContent: "center",
     gap: 20,
     height: "15%",
-    width: "100%"
+    width: "100%",
   },
   buttons: {
     borderWidth: 2,
@@ -124,10 +125,11 @@ const style = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#0066cb",
+    borderRadius: 5,
   },
   text: {
     color: "#f1f1f1",
     fontWeight: "500",
-    fontSize: 16
-  }
+    fontSize: 16,
+  },
 });

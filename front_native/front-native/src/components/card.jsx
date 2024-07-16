@@ -7,16 +7,21 @@ export const CardSkill = ({ navigation }) => {
 
   const modalEdit = () => {
     return (
-      <Modal
-        visible={modalVisible}
-        animationType="slide"
-        transparent={false}
-        
-      >
-        <Text>Modal abriu</Text>
-        <TouchableOpacity onPress={() => setModalVisible(false)}>
-          <Text>Fechar modal</Text>
-        </TouchableOpacity>
+      <Modal visible={modalVisible} animationType="slide" transparent={false}>
+        <View style={style.modal}>
+          <EditSkill />
+          <View style={style.containerButtonsModal}>
+            <TouchableOpacity style={style.buttons}>
+              <Text style={style.text}>Editar Skill</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={style.buttons}
+              onPress={() => setModalVisible(false)}
+            >
+              <Text style={style.text}>Fechar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </Modal>
     );
   };
@@ -40,11 +45,11 @@ export const CardSkill = ({ navigation }) => {
           style={style.buttons}
           onPress={() => setModalVisible(true)}
         >
-          <Text>Editar</Text>
+          <Text style={style.text}>Editar</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={style.buttons}>
-          <Text>Excluir</Text>
+          <Text style={style.text}>Excluir</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -81,14 +86,32 @@ const style = StyleSheet.create({
     alignItems: "center",
   },
   buttons: {
-    borderWidth: 1,
+    orderWidth: 2,
+    height: "50%",
     width: "40%",
-    height: "60%",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#0066cb",
+    borderRadius: 5,
+  },
+  containerButtonsModal: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignContent: "center",
+    gap: 20,
+    height: "15%",
+    width: "100%",
   },
   modal: {
-    width: "70%",
-    height: "50%"
-  }
+    flex: 1,
+    backgroundColor: "lightgrey",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  text: {
+    color: "#f1f1f1",
+    fontWeight: "500",
+    fontSize: 16,
+  },
 });
