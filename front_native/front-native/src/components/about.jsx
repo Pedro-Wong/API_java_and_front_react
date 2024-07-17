@@ -14,8 +14,8 @@ export function About() {
   return (
     <View style={style.style1}>
       <View style={style.style2}>
-        <FontAwesome5 name="user-graduate" size={24} color="black" />
-        <Text style={{ fontSize: 20, color: "white" }}>
+        <FontAwesome5 name="user-graduate" size={100} color="black" />
+        <Text style={{ fontSize: 22, color: "white" }}>
           Pedro Henrique de Azevedo
         </Text>
       </View>

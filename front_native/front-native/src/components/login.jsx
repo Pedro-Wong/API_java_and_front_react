@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
-
 export function Login({ navigation }) {
   return (
     <View style={style.style1}>
@@ -45,18 +44,16 @@ export function Login({ navigation }) {
           </Text>
           <TextInput style={style.style5} placeholder="Digite o usuário" />
 
-          <TextInput style={style.style5} placeholder="Digite a senha" />
+          <TextInput style={style.style5} placeholder="Digite a senha" secureTextEntry />
 
           <TouchableOpacity style={style.style7}>
             <Text style={style.style6}>ENTRAR</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={style.style7}>
-            <Text
-              style={style.style6}
-              onPress={() => navigation.navigate("signUp")}
-            >
-              CADASTRE-SE
-            </Text>
+          <TouchableOpacity
+            style={style.style7}
+            onPress={() => navigation.navigate("signUp")}
+          >
+            <Text style={style.style6}>CADASTRE-SE</Text>
           </TouchableOpacity>
 
           {/* <TouchableOpacity style={{ alignSelf: "center" }}>

@@ -6,10 +6,58 @@ import {
   StyleSheet,
   TextInput,
   Image,
+  Alert,
 } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
+import { salveUser } from "../services/userServices";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 export function SignUp({ navigation }) {
+  const [usuario, setUsuario] = useState();
+  const [senha, setSenha] = useState();
+  const [verSenha, setVerSenha] = useState();
+  const [showSenha, setShowSenha] = useState(false);
+
+  console.log(showSenha);
+  const verificacao = () => {
+    if (
+      usuario === undefined ||
+      senha === undefined ||
+      verSenha === undefined
+    ) {
+      Alert.alert("Atenção", "Nenhum campo pode ficar vazio", [
+        {
+          text: "Fechar",
+          style: "cancel",
+        },
+      ]);
+    } else if (usuario === "" || senha === " " || verSenha === "") {
+      Alert.alert("Atenção", "Nenhum campo pode ficar vazio", [
+        {
+          text: "Fechar",
+          style: "cancel",
+        },
+      ]);
+    } else if (senha !== verSenha) {
+      Alert.alert("Atenção", "As senhas não são iguais", [
+        {
+          text: "Fechar",
+          style: "cancel",
+        },
+      ]);
+    } else {
+      const objData = {
+        login: usuario,
+        senha: senha,
+      };
+      console.log(objData)
+      const postApi = async () => {
+        const response = await salveUser(objData);
+      };
+
+      postApi();
+    }
+  };
+
   return (
     <View style={style.style1}>
       <View style={{ width: "100%", flex: 0.15, justifyContent: "center" }}>
@@ -26,28 +74,56 @@ export function SignUp({ navigation }) {
       </View>
 
       <View style={style.style2}>
-
         <View style={style.style3}>
           <Text
             style={{ alignSelf: "center", fontSize: 18, fontWeight: "bold" }}
           >
             Digite seus dados para cadastro
           </Text>
-          <TextInput style={style.style5} placeholder="Digite o usuário" />
+          <TextInput
+            style={style.style5}
+            placeholder="Digite o usuário"
+            onChangeText={(e) => setUsuario(e)}
+          />
 
-          <TextInput style={style.style5} placeholder="Digite a senha" />
-          <TextInput style={style.style5} placeholder="Confirme a senha" />
+          <TextInput
+            style={style.style5}
+            placeholder="Digite a senha"
+            onChangeText={(e) => setSenha(e)}
+            secureTextEntry={!showSenha}
+          ></TextInput>
 
-          <TouchableOpacity style={style.style7}>
+          <TextInput
+            style={style.style5}
+            placeholder="Confirme a senha"
+            onChangeText={(e) => setVerSenha(e)}
+            secureTextEntry={!showSenha}
+          />
+          <View
+            style={{
+              justifyContent: "flex-end",
+              alignItems: "center",
+              flexDirection: "row",
+              gap: 10,
+            }}
+          >
+            <Text style={{ fontWeight: "600" }}>Mostrar senha</Text>
+            <TouchableOpacity onPress={() => setShowSenha(!showSenha)}>
+              <AntDesign
+                name="eye"
+                size={35}
+                color="black"
+                
+              />
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity style={style.style7} onPress={() => verificacao()}>
             <Text style={style.style6}>CADASTRAR</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => navigation.navigate("login")}>
-            <Text>
-                Voltar
-            </Text>
+            <Text>Voltar</Text>
           </TouchableOpacity>
-         
         </View>
       </View>
     </View>
@@ -87,6 +163,8 @@ const style = StyleSheet.create({
     height: "15%",
     borderRadius: 10,
     padding: 8,
+    display: "flex",
+    justifyContent: "flex-end",
   },
   style6: {
     alignSelf: "center",
