@@ -6,10 +6,31 @@ import {
   StyleSheet,
   TextInput,
   Image,
+  Alert
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
 export function Login({ navigation }) {
+  const [usuario, setUsuario] = useState();
+  const [senha, setSenha] = useState();
+
+  const verificacao = () => {
+    if (usuario === undefined || senha === undefined) {
+      Alert.alert("Atenção", "Nenhum campo pode ficar vazio", [
+        {
+          text: "Fechar",
+          style: "cancel",
+        },
+      ]);
+    }else if(usuario === " " || senha === ""){
+      Alert.alert("Atenção", "Nenhum campo pode ficar vazio", [
+        {
+          text: "Fechar",
+          style: "cancel",
+        },
+      ]);
+    }
+  };
   return (
     <View style={style.style1}>
       <View style={{ width: "100%", flex: 0.15, justifyContent: "center" }}>
@@ -42,11 +63,20 @@ export function Login({ navigation }) {
           >
             Digite seu login
           </Text>
-          <TextInput style={style.style5} placeholder="Digite o usuário" />
+          <TextInput
+            style={style.style5}
+            placeholder="Digite o usuário"
+            onChangeText={(e) => setUsuario(e)}
+          />
 
-          <TextInput style={style.style5} placeholder="Digite a senha" secureTextEntry />
+          <TextInput
+            style={style.style5}
+            placeholder="Digite a senha"
+            secureTextEntry
+            onChangeText={(e) => setSenha(e)}
+          />
 
-          <TouchableOpacity style={style.style7}>
+          <TouchableOpacity style={style.style7} onPress={() => verificacao()}>
             <Text style={style.style6}>ENTRAR</Text>
           </TouchableOpacity>
           <TouchableOpacity
