@@ -2,20 +2,20 @@ import { Text, View, TouchableOpacity, Modal } from "react-native";
 import { StyleSheet } from "react-native";
 import { EditSkill } from "./editSkill";
 import { useState } from "react";
+
 export const CardSkill = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
+  // modal para editar a Skill
   const modalEdit = () => {
     return (
       <Modal visible={modalVisible} animationType="slide" transparent={false}>
         <View style={style.modal}>
+          {/* import do componente EditSkil, onde está os input para editar a Skill */}
           <EditSkill />
           <View style={style.containerButtonsModal}>
-            <TouchableOpacity style={style.buttons}>
-              <Text style={style.text}>Editar Skill</Text>
-            </TouchableOpacity>
             <TouchableOpacity
-              style={style.buttons}
+              style={style.buttonClose}
               onPress={() => setModalVisible(false)}
             >
               <Text style={style.text}>Fechar</Text>
@@ -40,7 +40,7 @@ export const CardSkill = ({ navigation }) => {
 
       <View style={style.buttonsContainer}>
         {modalEdit()}
-
+        {/* Botão para abrir o modal que está na função modalEdit */}
         <TouchableOpacity
           style={style.buttons}
           onPress={() => setModalVisible(true)}
@@ -113,5 +113,14 @@ const style = StyleSheet.create({
     color: "#f1f1f1",
     fontWeight: "500",
     fontSize: 16,
+  },
+  buttonClose: {
+    orderWidth: 2,
+    height: "40%",
+    width: "30%",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "black",
+    borderRadius: 5,
   },
 });

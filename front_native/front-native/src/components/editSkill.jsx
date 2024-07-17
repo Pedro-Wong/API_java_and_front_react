@@ -23,6 +23,9 @@ export const EditSkill = () => {
         <TextInput style={style.input} placeholder="Versão" />
 
         <TextInput style={style.input} placeholder="Descrição" />
+        <TouchableOpacity style={style.buttons}>
+          <Text style={style.textButton}>Editar Skill</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -30,7 +33,7 @@ export const EditSkill = () => {
 
 const style = StyleSheet.create({
   containerModal: {
-    flex: 0.7,
+    flex: 0.9,
 
     justifyContent: "center",
     width: "95%",
@@ -47,7 +50,7 @@ const style = StyleSheet.create({
   },
   input: {
     borderWidth: 2,
-    height: "20%",
+    height: "15%",
     width: "95%",
     borderRadius: 15,
     padding: 10,
@@ -66,6 +69,20 @@ const style = StyleSheet.create({
   text: {
     color: "#f1f1f1",
     fontSize: 28,
+    fontWeight: "500",
+  },
+  buttons: {
+    borderWidth: 2,
+    height: "12%",
+    width: "50%",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#0066cb",
+    borderRadius: 5,
+  },
+  textButton: {
+    color: "#f1f1f1",
+    fontSize: 20,
     fontWeight: "500",
   },
 });

@@ -25,6 +25,8 @@ export function MainScreen({ navigation }) {
 
   // }
 
+  
+  // modal para adicionar a Skill
   const modalAdd = () => {
     return (
       <View
@@ -34,13 +36,12 @@ export function MainScreen({ navigation }) {
           justifyContent: "center",
         }}
       >
+        {/* Modal de adicionar */}
         <Modal animationType="fade" transparent={false} visible={add}>
           <View style={style.modal}>
+            {/* import do componente AddSkil, onde está os input para adicionar a Skill */}
             <AddSkill />
             <View style={style.containerButtons}>
-              <TouchableOpacity style={style.buttons}>
-                <Text style={style.text}>Adicionar Skill</Text>
-              </TouchableOpacity>
               <TouchableOpacity
                 style={style.buttons}
                 onPress={() => setAdd(false)}
@@ -61,6 +62,7 @@ export function MainScreen({ navigation }) {
         <Text style={{ color: "white", fontSize: 20 }}>Nome do Usuário</Text>
       </View>
 
+      {/* Botão para abrir o modal que está na função modalAdd */}
       <View style={style.bodyMain}>
         {modalAdd()}
         <TouchableOpacity
@@ -69,9 +71,8 @@ export function MainScreen({ navigation }) {
         >
           <Text>ADICIONAR SKILL</Text>
         </TouchableOpacity>
-        
+        {/* import do componente que mostra o card das skill */}
         <CardSkill />
-
       </View>
     </View>
   );
@@ -120,11 +121,11 @@ const style = StyleSheet.create({
   },
   buttons: {
     borderWidth: 2,
-    height: "50%",
-    width: "40%",
+    height: "40%",
+    width: "30%",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#0066cb",
+    backgroundColor: "black",
     borderRadius: 5,
   },
   text: {
