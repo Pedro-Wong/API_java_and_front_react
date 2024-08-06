@@ -34,6 +34,9 @@ const defaultTheme = createTheme();
 export default function NewLogin() {
   const [state, setState] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [login, setLogin] = useState();
+  const [password, setPassword] = useState();
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -106,20 +109,24 @@ export default function NewLogin() {
                   required
                   fullWidth
                   id="email"
-                  label="Login"
+                  // label="Login"
+                  placeholder="Login"
                   name="email"
                   autoComplete="email"
                   autoFocus
+                  onChange={(e) => setLogin(e.target.value)}
                 />
                 <TextField
                   margin="normal"
                   required
                   fullWidth
                   name="password"
-                  label="Senha"
+                  // label="Senha"
+                  placeholder="Senha"
                   type={showPassword ? "text" : "password"}
                   id="password"
                   autoComplete="current-password"
+                  onChange={(e) => setPassword(e.target.value)}
                 ></TextField>
                 <Box component="div" sx={RememberBox}>
                   <FormControlLabel
