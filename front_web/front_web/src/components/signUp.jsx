@@ -9,9 +9,7 @@ import Alert from "@mui/material/Alert";
 export function SignUp() {
   const [usuario, setUsuario] = useState("");
   const [senha, setSenha] = useState("");
-
   const [confSenha, setConfSenha] = useState("");
-
   const [alertMessage, setAlertMessage] = useState("");
   const [alertSeverity, setAlertSeverity] = useState("info");
   const [showAlert, setShowAlert] = useState(false);

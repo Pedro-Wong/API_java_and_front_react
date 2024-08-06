@@ -123,6 +123,17 @@ export function Login() {
           >
             Cadastre-se
           </Button>
+          <Button
+            sx={{
+              color: "white",
+              background: "#0066cb",
+              width: "20vw",
+              height: "5vh",
+            }}
+            onClick={() => navigate("/newLogin")}
+          >
+            Novo login
+          </Button>
         </Box>
       </Box>
     </Box>

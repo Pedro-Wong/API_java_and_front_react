@@ -22,6 +22,7 @@ export default function HeaderCabecalho() {
         position="static"
       >
         <Toolbar>
+          
           <ModalAddSkill />
 
           <Typography
