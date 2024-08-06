@@ -32,24 +32,53 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 const defaultTheme = createTheme();
 
 export default function NewLogin() {
-  const [state, setState] = useState(false);
+
   const [showPassword, setShowPassword] = useState(false);
-  const [login, setLogin] = useState();
-  const [password, setPassword] = useState();
+ 
+  const [local, setLocal] = useState(true);
+  const [user, setUser] = useState({})
+  const [getStore, setGetStore] = useState({});
+  // useEffect(() => {
+  //   setLocal(false)
+  // }, [])
+ 
+ 
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    // console.log({
+    //   email: data.get("email"),
+    //   password: data.get("password"),
+    // });
   };
 
   const exibPassword = () => {
     setShowPassword(!showPassword);
   };
+
+
+  
+  const logicStore = () => {
+    setLocal(!local)
+    console.log(local)
+    if(local === true){
+      localStorage.setItem('user', JSON.stringify(user))
+      setGetStore(JSON.parse(localStorage.getItem('user')))
+      
+    }else{
+      localStorage.removeItem('user')
+    }
+    
+  }
+ 
+
+  // console.log(getStore)
+
+
+
+
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -104,6 +133,11 @@ export default function NewLogin() {
                 onSubmit={handleSubmit}
                 sx={InputBoxStyle}
               >
+
+
+
+
+
                 <TextField
                   margin="normal"
                   required
@@ -114,7 +148,8 @@ export default function NewLogin() {
                   name="email"
                   autoComplete="email"
                   autoFocus
-                  onChange={(e) => setLogin(e.target.value)}
+                  value={getStore.user}
+                  onChange={(e) => setUser({...user, user: e.target.value})}
                 />
                 <TextField
                   margin="normal"
@@ -126,11 +161,18 @@ export default function NewLogin() {
                   type={showPassword ? "text" : "password"}
                   id="password"
                   autoComplete="current-password"
-                  onChange={(e) => setPassword(e.target.value)}
-                ></TextField>
+                  onChange={(e) => setUser({...user, password: e.target.value})}
+                />
+
+
+
+
+
+
                 <Box component="div" sx={RememberBox}>
                   <FormControlLabel
-                    control={<Checkbox value="remember" color="primary" />}
+                    
+                    control={<Checkbox value="remember" color="primary" onClick={() => logicStore()}/>}
                     label="Lembrar usuário"
                   />
 
